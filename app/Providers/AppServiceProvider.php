@@ -27,5 +27,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('convert', function ($money) {
             return "<?php echo number_format($money, 2); ?>";
         });
+
+        Blade::anonymousComponentNamespace('pages.login', 'login');
     }
 }

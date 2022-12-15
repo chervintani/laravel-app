@@ -3,7 +3,11 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Queue;
 use Blade;
+use Illuminate\Queue\Events\JobProcessed;
+use Illuminate\Queue\Events\JobProcessing;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -29,5 +33,22 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Blade::anonymousComponentNamespace('pages.login', 'login');
+        Blade::anonymousComponentNamespace('pages.order', 'order');
+
+        Queue::before(function (JobProcessing $event) {
+            // $event->connectionName
+            // $event->job
+            // $event->job->payload()
+        });
+
+        Queue::after(function (JobProcessed $event) {
+            // $event->connectionName
+            // $event->job
+            // $event->job->payload()
+            dd($event->job);
+            dd($event->job->payload());
+        });
     }
+
+
 }

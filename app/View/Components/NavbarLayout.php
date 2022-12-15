@@ -31,6 +31,6 @@ class NavbarLayout extends Component
      */
     public function render()
     {
-        return view('navbar-layout');
+        return view('pages.navbar-layout');
     }
 }

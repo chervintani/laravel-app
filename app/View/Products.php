@@ -31,6 +31,6 @@ class Products extends Component
      */
     public function render()
     {
-        return view('products.index');
+        return view('pages.products.index');
     }
 }

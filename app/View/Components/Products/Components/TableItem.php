@@ -31,6 +31,6 @@ class TableItem extends Component
      */
     public function render()
     {
-        return view('products.components.table-item');
+        return view('pages.products.components.table-item');
     }
 }

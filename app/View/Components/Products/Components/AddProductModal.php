@@ -23,6 +23,6 @@ class AddProductModal extends Component
      */
     public function render()
     {
-        return view('products.components.add-product-modal');
+        return view('pages.products.components.add-product-modal');
     }
 }

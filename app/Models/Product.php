@@ -15,5 +15,6 @@ class Product extends Model
         'category',
         'price',
         'inventory',
+        'user_id',
     ];
 }

@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,8 +15,14 @@ use App\Http\Controllers\OrderController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-Route::resource('products', ProductController::class);
+// Route::get('/dashboard', function () {
+//     return view('pages.products.index');
+// })->middleware(['auth', 'verified'])->name('pages.products.index');
+
+require __DIR__.'/auth.php';
+
+Route::resource('products', ProductController::class)->middleware(['auth', 'verified']);
 Route::resource('order', OrderController::class);
